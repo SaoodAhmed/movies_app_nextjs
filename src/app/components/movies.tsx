@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import MovieList from './movieList';
+import AddMovie from './addMovie';
 
 type MoviesDataType = {
     id:number;
@@ -49,15 +50,21 @@ const moviesData :MoviesDataType[] = [
           "https://occ-0-4163-58.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfrc6MgrOwmQINLkRTm3MI1Hkxzva8I9s6ZeaoPk12SJOuRtytx4I65x3nSM4pC853zxfTINzv6RHPMV8sPc49MiqHMoC4P7SbwPQazDZX82a3T3SUQE56bIg7tZOetU2va5H-QKUr_BDMpl3DseOU0RrlC1u3E8h7-Dcer6dhEbroIbkJE2F0B5t0k8ZhtkWIJd5CMWhqhEuqmpwT4-JiG37CrYtsugkPYlswiao2Xg9Gx0Hd0lsaDSKtXSrG2IiTWF6AwPd-Q24__QXUB0Cn98nTcpwJDuu70l-NGZhUHjBIqwsijf.jpg?r=f34",
         category: "Fantasy",
         link: "https://www.netflix.com/in/title/80990668?souece=35",
-      },
-  
-
+      }
 ]
+
+
 
 const Movies = () => {
     const [data, setData] = useState(moviesData)
+    const addMovie = (movie:any)=>{
+      setData([...data, movie])
+    
+    }
   return (
     <div>
+        <AddMovie addMovie={addMovie}/>
+
         <MovieList data={data}/>
     </div>
   )
